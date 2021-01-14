@@ -1862,7 +1862,7 @@ static int selectLatestIndexSaveLayout(SubIndexLayout   *sil,
 /*****************************************************************************/
 static uint64_t getTimeMS(AbsTime time)
 {
-  time_t t = asTimeT(time);
+  ktime_t t = asTimeT(time);
   RelTime r = timeDifference(time, fromTimeT(t));
   return (uint64_t) t * 1000 + relTimeToMilliseconds(r);
 }

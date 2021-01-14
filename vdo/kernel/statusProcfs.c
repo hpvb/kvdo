@@ -82,11 +82,11 @@ static int statusDedupeOpen(struct inode *inode, struct file *file)
 #endif
 }
 
-static const struct file_operations vdoProcfsDedupeOps = {
-  .open = statusDedupeOpen,
-  .read = seq_read,
-  .llseek = seq_lseek,
-  .release = single_release,
+static const struct proc_ops vdoProcfsDedupeOps = {
+  .proc_open = statusDedupeOpen,
+  .proc_read = seq_read,
+  .proc_lseek = seq_lseek,
+  .proc_release = single_release,
 };
 
 /**********************************************************************/
@@ -175,11 +175,11 @@ static int statusKernelOpen(struct inode *inode, struct file *file)
 #endif
 }
 
-static const struct file_operations vdoProcfsKernelOps = {
-  .open = statusKernelOpen,
-  .read = seq_read,
-  .llseek = seq_lseek,
-  .release = single_release,
+static const struct proc_ops vdoProcfsKernelOps = {
+  .proc_open = statusKernelOpen,
+  .proc_read = seq_read,
+  .proc_lseek = seq_lseek,
+  .proc_release = single_release,
 };
 
 /**********************************************************************/

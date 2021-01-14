@@ -74,7 +74,7 @@ static FunnelQueueEntry *getOldest(FunnelQueue *queue)
     // without breaking the queue invariants.
     oldest = next;
     queue->oldest = oldest;
-    smp_read_barrier_depends();
+    smp_rmb();
     next = oldest->next;
   }
 

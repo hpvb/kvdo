@@ -291,7 +291,7 @@ static void sendBioToDevice(KVIO *kvio, BIO *bio, TraceLocation location)
   countAllBios(kvio, bio);
   kvioAddTraceRecord(kvio, location);
   bio->bi_next = NULL;
-  generic_make_request(bio);
+  submit_bio(bio);
 }
 
 /**

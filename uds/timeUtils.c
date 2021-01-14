@@ -79,7 +79,7 @@ static AbsTime deltaTime(AbsTime time, RelTime reltime)
     return time;
   }
   // may not be accurate for times before the Epoch...
-  // (is the ns time positive or negative for negative time_t?)
+  // (is the ns time positive or negative for negative ktime_t?)
   int64_t ns = time.tv_sec * BILLION + time.tv_nsec;
   if ((ns < INT64_MIN / 2) ||
       (ns > INT64_MAX / 2) ||

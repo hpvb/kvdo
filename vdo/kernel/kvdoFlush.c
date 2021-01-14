@@ -198,7 +198,7 @@ static void kvdoCompleteFlushWork(KvdoWorkItem *item)
     prepareFlushBIO(bio, bio->bi_private, getKernelLayerBdev(layer),
                     bio->bi_end_io);
     atomic64_inc(&layer->flushOut);
-    generic_make_request(bio);
+    submit_bio(bio);
   }
 
 

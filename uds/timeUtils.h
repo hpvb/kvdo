@@ -216,13 +216,13 @@ static INLINE int64_t relTimeToNanoseconds(RelTime reltime)
 uint64_t nowUsec(void) __attribute__((warn_unused_result));
 
 /**
- * Convert from an AbsTime to a time_t
+ * Convert from an AbsTime to a ktime_t
  *
  * @param time  an AbsTime time
  *
- * @return a time_t time
+ * @return a ktime_t time
  **/
-static INLINE time_t asTimeT(AbsTime time)
+static INLINE ktime_t asTimeT(AbsTime time)
 {
 #ifdef __KERNEL__
   return time / 1000000000;
@@ -232,13 +232,13 @@ static INLINE time_t asTimeT(AbsTime time)
 }
 
 /**
- * Convert from a time_t to an AbsTime,
+ * Convert from a ktime_t to an AbsTime,
  *
- * @param time  a time_t time
+ * @param time  a ktime_t time
  *
  * @return an AbsTime time
  **/
-static INLINE AbsTime fromTimeT(time_t time)
+static INLINE AbsTime fromTimeT(ktime_t time)
 {
 #ifdef __KERNEL__
   return time * 1000000000;
@@ -256,7 +256,7 @@ static INLINE AbsTime fromTimeT(time_t time)
  *
  * @param time  an AbsTime time
  *
- * @return a time_t time
+ * @return a ktime_t time
  **/
 static INLINE struct timespec asTimeSpec(AbsTime time)
 {
@@ -270,7 +270,7 @@ static INLINE struct timespec asTimeSpec(AbsTime time)
  *
  * @param time  an AbsTime time
  *
- * @return a time_t time
+ * @return a ktime_t time
  **/
 static INLINE struct timeval asTimeVal(AbsTime time)
 {
